@@ -1,5 +1,4 @@
 bool isPrime(int N) {
-	//Your code here
 	if (N == 1) {
 		return false;
 	}
