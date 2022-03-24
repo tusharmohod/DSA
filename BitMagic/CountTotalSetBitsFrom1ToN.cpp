@@ -1,4 +1,4 @@
-int countSetBits(int n) {
+int countTotalSetBitsFrom1ToN(int n) {
 	if(n == 0) {
 		return 0;
 	}

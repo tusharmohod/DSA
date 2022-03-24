@@ -1,12 +1,13 @@
 int iterativePower(int n, int p) {
 	int r = 1;
-	int cr = 1;
-	while(n > 0) {
+	
+	while(p > 0) {
 		if(n & 1) {
-			r = r * cr;
+			r = n;
 		}
-		n /= 2;
-		cr = cr * p;
+		p /= 2;
+		n = n * n;
 	}
+	
 	return r;
 }
