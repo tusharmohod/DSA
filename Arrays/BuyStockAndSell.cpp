@@ -1,4 +1,4 @@
-int stockBuyAndSell(int arr[], int n) {
+int buyStockAndSell(int arr[], int n) {
     int profit = 0;
 
     for(int i = 1; i < n; i++) {

@@ -20,7 +20,7 @@ int maximumIndex(int arr[], int n) {
             j++;
         }
         else {
-            i--;
+            i++;
         }
     }
 
