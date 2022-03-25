@@ -2,10 +2,10 @@ int iterativePower(int n, int p) {
 	int r = 1;
 	
 	while(p > 0) {
-		if(n & 1) {
-			r = n;
+		if(p & 1) {
+			r = r * n;
 		}
-		p /= 2;
+		p = p >> 1;
 		n = n * n;
 	}
 	

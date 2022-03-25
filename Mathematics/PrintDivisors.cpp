@@ -7,7 +7,12 @@ void printDivisors(int n) {
 		}
 	}
 	
-	for( ; i >= 0; i--) {
+	i--;
+	if(i == (n / i)) {
+		i--;
+	}
+	
+	for( ; i > 0; i--) {
 		if(n % i == 0) {
 			cout << n / i << endl;
 		}
