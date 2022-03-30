@@ -22,13 +22,15 @@ void unionOfTwoSortedArrays(int a[], int b[], int n, int m) {
         }
     }
     while(i < m) {
-        if(i > 0 && a[i] != a[i - 1]) {
-            cout << a[i++] << " ";
+        if(i == 0 || i > 0 && a[i] != a[i - 1]) {
+            cout << a[i] << " ";
         }
+		i++;
     }
     while(j < n) {
-        if(j > 0 && b[j] != b[j - 1]) {
-            cout << b[j++] << " ";
+        if(j == 0 || j > 0 && b[j] != b[j - 1]) {
+            cout << b[j] << " ";
         }
+		j++;
     }
 }
