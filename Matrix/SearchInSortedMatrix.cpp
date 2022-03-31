@@ -1,5 +1,8 @@
 bool searchMatrix(vector < vector < int >> & matrix, int target) {
     int r = matrix.size(), c = matrix[0].size();
+    if(target < matrix[0][0] || target > matrix[r - 1][c - 1]) {
+        return false;
+    }
     if (r == 1) {
         for (int k = 0; k < c; k++) {
             if (matrix[0][k] == target) {
