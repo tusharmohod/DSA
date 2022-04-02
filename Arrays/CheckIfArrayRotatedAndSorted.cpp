@@ -1,19 +1,21 @@
 bool isNonDecreasing(int arr[], int s, int e) {
+    int c = 0;
     for(int i = s; i < e; i++) {
-        if(arr[i] > arr[i + 1]) {
-            return false;
+        if(arr[i] > arr[(i + 1) % e]) {
+            c++;
         }
     }
-    return true;
+    return c <= 1; 
 }
 
 bool isNonIncreasing(int arr[], int s, int e) {
+    int c = 0;
     for(int i = s; i < e; i++) {
-        if(arr[i] < arr[i + 1]) {
-            return false;
+        if(arr[i] < arr[(i + 1) % e]) {
+            c++;
         }
     }
-    return true;
+    return c <= 1;
 }
 
 bool checkIfArrayRotatedAndSorted(int arr[], int n) {
@@ -30,11 +32,11 @@ bool checkIfArrayRotatedAndSorted(int arr[], int n) {
     }
     
     if(minIndex == maxIndex + 1) {
-        return isNonDecreasing(arr, 0, maxIndex) && isNonDecreasing(arr, minIndex, n - 1) && (arr[0] > arr[n - 1]);
+        return isNonDecreasing(arr, 0, n);
     }
     
     if(maxIndex == minIndex + 1) {
-        return isNonIncreasing(arr, 0, minIndex) && isNonIncreasing(arr, maxIndex, n - 1) && (arr[0] < arr[n - 1]);
+        return isNonIncreasing(arr, 0, n);
     }
     
     return false;
