@@ -1,34 +1,36 @@
-void spiralMatrix2(int arr[][], int m, int n) {
-	if(n == 1) {
-        for(int i = 0; i < m; i++) {
-            cout<<arr[0][i]<<" ";
+vector<vector<int>> spiralMatrix2(int n) {
+    vector<vector<int>> res(n, vector<int>(n, 0));
+    int k = 1;
+    int t = 0, l = 0, r = n - 1, b = n - 1;
+    while(l <= r && t <= b) {
+        for(int i = l; i <= r; i++) {
+            res[t][i] = k++;
+        }
+        t++;
+        if(l > r || t > b) {
+            break;
+        }
+        for(int i = t; i <= b; i++) {
+            res[i][r] = k++;
+        }
+        r--;
+        if(l > r || t > b) {
+            break;
+        }
+        for(int i = r; i >= l; i--) {
+            res[b][i] = k++;
+        }
+        b--;
+        if(l > r || t > b) {
+            break;
+        }
+        for(int i = b; i >= t; i--) {
+            res[i][l] = k++;
+        }
+        l++;
+        if(l > r || t > b) {
+            break;
         }
     }
-	else if(m == 1) {
-        for(int i = 0; i < n; i++) {
-            cout << arr[i][0] << " ";
-        }
-    }
-	else {
-	    int left = 0, top = 0, bottom = n - 1, right = m - 1;
-	    int i=0;
-	    while(top <= bottom && left <= right) {
-	        for(i = left; i <= right; i++) {
-                cout << arr[top][i] << " ";
-            }
-	        top++;
-	        for(i = top; i <= bottom; i++) {
-                cout << arr[i][right] << " ";
-            }
-	        right--;
-	        for(i = right; i >= left; i--) {
-                cout << arr[bottom][i] << " ";
-            }
-	        bottom--;
-	        for(i = bottom; i >= top; i--) {
-                cout << arr[i][left] << " ";
-            }
-	        left++;
-	    }
-	}
+    return res;
 }
