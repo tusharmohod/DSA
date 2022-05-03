@@ -14,7 +14,7 @@ void KMP(string pat, string txt) {
             j++;
         }
         if (j == m) {
-            cout << i - j << " ";
+            cout << i - j << " " << i << endl;
             j = lps[j - 1];
         }
         else if (i < n && txt[i] != pat[j]) {
