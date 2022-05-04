@@ -11,14 +11,24 @@ int lexicographicRankDuplicate(string s) {
 	int n = s.length();
 	int fact = factorial(n);
 	for(int i = 0; i < (n - 1); i++) {
-		int count = 0;
+		int c = 0;
 		fact = fact / (n - i);
-		for(int j = i + 1; j < n; j++) {
-			if(s[i] > s[j]) {
-				count += 1;
-			}
+		
+		vector<int> d_count(26, 0);
+
+		for (int j = i; j < n; j++){
+			d_count[s[j] - 'a'] += 1;
 		}
-		rank = rank + (count * fact);
+
+		int d_fac = 1;
+		for (int e : d_count)
+			d_fac *= factorial(e);
+			
+		rank = rank + ((count[s[i] - 1] * fact) / d_fac);
+		for(int j = s[i]; j < 256; j++) {
+            count[j]--;
+        }
 	}
 	return rank;	
 }
+

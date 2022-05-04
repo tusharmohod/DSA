@@ -1,35 +1,25 @@
 string caseSpecificSortingOfString(string str, int n) {
-    map<char, int> lc;
-    map<char, int> uc;
-    string res = "";
-    
-    for(int i = 0; i < n; i++) {
-        if(str[i] >= 'a' && str[i] <= 'z') {
-            lc[str[i]] += 1;
+    int count[256] = {0};
+    int i = 'a';
+    int j = 'A';
+    for(int k = 0; k < str.size(); k++) {
+        count[str[k]]++;
+    }
+    for(int k = 0; k < str.size(); k++) {
+        if(str[k] >= 'a' && str[k] <= 'z') {
+            while(count[i] == 0) {
+                i++;
+            }
+            str[k] = char(i);
+            count[i]--;
         }
         else {
-            uc[str[i]] += 1;
+            while(count[j] == 0) {
+                j++;
+            }
+            str[k] = char(j);
+            count[j]--;
         }
     }
-    
-    for(int i = 0; i < n; i++) {
-        if(str[i] >= 'a' && str[i] <= 'z') {
-            auto it = lc.begin();
-            res = res + it->first;
-            it->second -= 1;
-            if(it->second == 0) {
-                lc.erase(it);
-            }
-        }
-        else {
-            auto it = uc.begin();
-            res = res + it->first;
-            it->second -= 1;
-            if(it->second == 0) {
-                uc.erase(it);
-            }
-        }
-    }
-    
-    return res;
+    return str;
 }
