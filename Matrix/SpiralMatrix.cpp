@@ -1,4 +1,4 @@
-vector<int> spirallyTraverse(vector<vector<int>> arr, int r, int c) {
+vector<int> spiralMatrix(vector<vector<int>> arr, int r, int c) {
     vector<int> res;
     if (r == 1) {
         for (int i = 0; i < c; i++) {
