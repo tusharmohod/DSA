@@ -18,15 +18,13 @@ void rabinKarpPatternSearch(string txt, string pat) {
 
 	for(int i = 0; i <= (n - m); i++) {
 		if(p == t) {
-			bool flag = true;
 			for(int j = 0; j < m; j++) {
 				if(txt[i + j] != pat[j]) {
-					flag = false;
 					break;
 				}
 			}
-			if(flag) {
-				cout << i << " ";
+			if(j == m) {
+				cout << i << " " << i + j - 1 << endl;
 			}
 		}
 		if(i < (n - m)) {
