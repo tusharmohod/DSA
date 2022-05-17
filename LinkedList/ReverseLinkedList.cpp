@@ -1,15 +1,12 @@
 ListNode* reverseLinkedList(ListNode* head) {
-    if(!head || !head->next) {
-        return head;
-    }
     ListNode *p = NULL;
     ListNode *c = head;
-    ListNode *n = c->next;
+    ListNode *n = NULL;
     while(c) {
+        n = c->next;
         c->next = p;
         p = c;
         c = n;
-        n = (n == NULL) ? NULL: n->next;
     }
     return p;
 }
