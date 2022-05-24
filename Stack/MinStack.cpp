@@ -7,13 +7,17 @@ class MinStack {
     }
     
     void push(int val) {
-        m.push(m.empty() ? val : min(val, m.top()));
         st.push(val);
+        if(val <= m.top()) {
+            m.push(val);
+        }
     }
     
     void pop() {
+        if(st.top() == m.top()) {
+            m.pop();
+        }
         st.pop();
-        m.pop();
     }
     
     int top() {

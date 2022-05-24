@@ -6,6 +6,6 @@ void nextGreaterElement(vector<int> arr) {
 		}
 		int ans = (s.empty()) ? -1 : s.top();
 		cout << ans << " ";
-		s.push(arr[i])
+		s.push(arr[i]);
 	}
 }

@@ -8,7 +8,6 @@ Node* insertAtBeginCircularDoubleLL(Node *head, int x) {
     newNode->next = head;
     newNode->prev = head->prev;
     head->prev = newNode;
-    head = newNode;
-    head->prev->next = newNode;
+    newNode->prev->next = newNode;
     return newNode;
 }
