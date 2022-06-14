@@ -16,11 +16,11 @@ int burnTimeFromLeaf(Node *root, int &leaf, int &dist) {
 	int rh = burnTimeFromLeaf(root->right, leaf, rdist);
 
 	if(ldist != -1) {
-		ldist = ldist + 1;
+		dist = ldist + 1;
 		res = max(res, dist + rh);
 	}
 	else if(rdist != -1) {
-		rdist = rdist + 1;
+		dist = rdist + 1;
 		res = max(res, dist + lh);
 	}
 
