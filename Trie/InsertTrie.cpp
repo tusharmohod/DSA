@@ -9,8 +9,8 @@ struct TrieNode {
     }
 };
 
-void insert(string &key) {
-    TrieNode *curr = root;
+void insertTrie(string st) {
+    TrieNode *curr = nullptr;
 
     for (int i = 0; i < key.size(); i++) {
         if (curr->child[key[i] - 'a'] == nullptr) {
